@@ -42,7 +42,7 @@ def load_dataset(dataset_path,
 
         data_set = data_set.rename(input_columns=['src_tokens', 'src_tokens_length', 'label_idx'],
                                    output_columns=['src_token_text', 'src_tokens_text_length', 'label_idx_tag'])
-        data_set = data_set.batch(batch_size, drop_remainder=False, num_parallel_workers=32)
+        data_set = data_set.batch(batch_size, drop_remainder=False, num_parallel_workers=4)
         data_set = data_set.repeat(repeat_count)
         return data_set
 
